@@ -9,11 +9,6 @@
 }
 
 @font-face {
-  font-family: 'Futura Bold';
-  src: url("fonts/Futura-Bold.ttf");
-}
-
-@font-face {
   font-family: 'Futura Light';
   src: url("fonts/Futura-Light-BT.ttf");
 }
@@ -21,18 +16,22 @@
 body {
   max-width: 100vw;
   overflow-x: hidden;
-  font-family: 'Futura Light';
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
   margin: 0;
-  background-color: var(--bg-color);
 }
 
 h1 {
   font-size: 50px;
+  font-family: 'Futura Light';
+  font-weight: bold;
 }
 
 h2 {
   font-size: 35px;
   margin: 0;
+  font-family: 'Futura Light';
+  font-weight: bold;
 }
 
 a {
@@ -43,7 +42,6 @@ a {
 p {
   font-size: 20px;
   padding: 15px;
-  width: 75%;
   line-height: 1.5em;
   margin-top: 0;
   margin-bottom: 1em;
@@ -95,21 +93,64 @@ a:hover {
 }
 
 /* Page content */
-.page-container {
+.page-section {
   padding: 50px 100px;  
 }
 
 .page-title {
   margin-bottom: 3em;  
+  padding: 50px 100px; 
 }
 
-.page-title h1 {
-  font-family: 'Futura Light';
+.page-title h1, .section-title h1 {
+  font-family: 'Futura Light' !important;
   font-size: 50px;
   margin-top: 0;
-  margin-bottom: .1em;
+  margin-bottom: .5em;
   font-weight: bold;
-  width: 80%;
+}
+
+.section-title {
+  margin: 0 auto 3em;
+  width: fit-content;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(12, [col-start] 1fr [col-end]);
+  grid-auto-rows: auto;
+}
+
+.grid-container div {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.page-section {
+  margin-bottom: 2em;
+}
+
+/* Home page */
+#front-page-img {
+
+}
+
+.initiatives-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.initiatives-container .initiative-card {
+  flex-basis: 20%;
+  padding: 15px;
+  text-align: center;
+}
+
+.initiatives-container .initiative-card i {
+  margin: 0 auto 1em;
+  font-size: 50px;
 }
 
 /* Scrollbar */
@@ -153,19 +194,8 @@ a:hover {
   color: var(--logo-teal) !important;
 }
 
-/* Adjust styles for small (width < 768px) and extra-small screens (width < 576px) */
-@media screen and (max-width: 768px) {
-  h1 {
-    font-size: 30px !important;
-  }  
-  h2 {
-    font-size: 20px;
-  }
-
-  p {
-    font-size: 18px;
-  }
-
+/* Toggle nav */
+@media screen and (max-width: 880px) {
   .nav-container .nav-link {
     display: none;    
     padding: 10px;
@@ -181,25 +211,53 @@ a:hover {
     flex-basis: 100%;
   }
 
+  #toggle-btn {
+    display: block;
+    margin: 10px;
+  }
+
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .grid-container div {
+    padding-bottom: 50px;
+  }
+}
+
+/* Adjust styles for small (width < 768px) and extra-small screens (width < 576px) */
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 30px !important;
+  }  
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
   .page-title {
     margin-bottom: 1.5em !important;  
   }
 
-  .page-title h1 {
+  .page-title h1, .section-title h1 {
     margin-bottom: .4em;
   }
 
-  .page-container {
+  .page-section {
+    margin-bottom: 1em !important;
+    padding: 25px 50px 50px;
+  } 
+
+  .page-title {
     padding: 25px 50px 50px;
   }
 
-  .page-section {
-    margin-bottom: 1.5em !important;
-  } 
-
-  #toggle-btn {
-    display: block;
-    margin: 10px;
+  .initiatives-container .initiative-card {
+    flex-basis: 100%;
   }
 }
 
@@ -208,7 +266,11 @@ a:hover {
     padding: 0 12px 25px;
   }
 
-  .page-container {
+  .page-section {
+    padding: 12px 25px 25px;
+  }
+
+  .page-title {
     padding: 12px 25px 25px;
   }
 }
