@@ -93,13 +93,22 @@ a:hover {
 }
 
 /* Page content */
+.page-container {
+  padding-top: 50px;
+}
+
 .page-section {
-  padding: 50px 100px;  
+  padding: 50px 100px;
+  display: block;  
 }
 
 .page-title {
   margin-bottom: 3em;  
   padding: 50px 100px; 
+}
+
+.page-title p {
+  padding-left: 0;
 }
 
 .page-title h1, .section-title h1 {
@@ -128,11 +137,46 @@ a:hover {
 
 .page-section {
   margin-bottom: 2em;
+  border: 0;
+}
+
+.link-btn {
+  background: var(--logo-red);
+  opacity: .6;
+  color: whitesmoke;
+  padding: 20px;
+  border-radius: 30px;
+  margin-right: .5em;
+  border-radius: 50px;
+  border: 2px solid var(--logo-red);  
+  transition: background 1s ease, box-shadow 1s ease, color .5s ease, transform .5s ease;
+  display: inline-block;
+}
+
+.link-btn:hover {
+  color: var(--logo-red) !important;
+  background: white !important;
+  box-shadow:  20px 20px 60px #bebebe, -20px -20px 40px #ffffff;
+  transform: translateY(-3px);
+}
+
+.link-btn.light {
+  color: var(--logo-red);
+  background: white;
+  border: 2px solid var(--logo-red);
+}
+
+.link-btn.light:hover {
+  color: white !important;
+  background: var(--logo-red) !important;
+  box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  transform: translateY(-3px);
 }
 
 /* Home page */
-#front-page-img {
-
+.wave {
+  width: 100%;
+  display: block;
 }
 
 .initiatives-container {
@@ -259,6 +303,10 @@ a:hover {
   .initiatives-container .initiative-card {
     flex-basis: 100%;
   }
+
+  .front-page-title-block {
+    max-width: 200px;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -267,7 +315,7 @@ a:hover {
   }
 
   .page-section {
-    padding: 12px 25px 25px;
+    padding: 30px;
   }
 
   .page-title {
