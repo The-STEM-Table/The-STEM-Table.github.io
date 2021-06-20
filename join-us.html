@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<div class="page-container">
+  <div class="page-title">
+    <h1>Join Our Team</h1>
+    <p>We are currently looking for team members for TST throughout the summer and for the 2021-22 school year which begins in mid-August. Application decisions and member onboarding will be on a rolling basis in June-July, however. We recommend you apply to your desired position[s] during June, July, or August. Have an idea for a new position that may be helpful to our organization and/or you would love to have? Email <a href="mailto:infodesk@thestemtable.org">infodesk@thestemtable.org</a>! The application for each position is detailed below.</p>
+  </div>
+  <div class="page-section">
+    <div class="accordion">
+      {% for job in site.jobs %}
+        <details>
+          <summary><h2>{{ job.title }}</h2></summary>
+          {{ job.content }}
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+</div>

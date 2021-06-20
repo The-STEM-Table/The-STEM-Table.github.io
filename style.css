@@ -47,6 +47,12 @@ p {
   margin-bottom: 1em;
 }
 
+li {
+  font-size: 20px;
+  line-height: 1.5em;
+  list-style: none;
+}
+
 a:hover {
   color: var(--logo-teal);
 }
@@ -61,6 +67,10 @@ a:hover {
   align-items: center;
   padding: 0 50px;
   margin-bottom: 3rem;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  transition: box-shadow 1s ease;
 }
 
 .nav-container .nav-link {
@@ -80,9 +90,17 @@ a:hover {
 }
 
 #nav-logo img {
-  max-width: 15vw;
+  max-width: 17vw;
   min-width: 180px;
   height: auto;
+  transition: max-width 1s ease;
+}
+
+.nav-container.scrolled {
+  box-shadow:
+    0 12.5px 10px rgba(0, 0, 0, 0.035),
+    0 100px 80px rgba(0, 0, 0, 0.07)
+  ;
 }
 
 #toggle-btn {
@@ -103,8 +121,7 @@ a:hover {
 }
 
 .page-title {
-  margin-bottom: 3em;  
-  padding: 50px 100px; 
+  padding: 0 100px; 
 }
 
 .page-title p {
@@ -146,7 +163,7 @@ a:hover {
   color: whitesmoke;
   padding: 20px;
   border-radius: 30px;
-  margin-right: .5em;
+  margin: 0 .5em 1em 0;
   border-radius: 50px;
   border: 2px solid var(--logo-red);  
   transition: background 1s ease, box-shadow 1s ease, color .5s ease, transform .5s ease;
@@ -195,6 +212,114 @@ a:hover {
 .initiatives-container .initiative-card i {
   margin: 0 auto 1em;
   font-size: 50px;
+}
+
+.team-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.team-container .team-member-card {
+  flex-basis: 25%;
+  text-align: center;
+  padding: 20px;
+}
+
+.team-container .team-member-card .team-member-pic {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1em;
+  border-radius: 50%;  
+}
+
+/* Job Board page */
+.accordion {
+  margin-bottom: 2em;
+}
+
+.accordion details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion details {
+  position: relative;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+.accordion details summary::-webkit-details-marker {
+  display: none;
+}
+
+.accordion details > summary {
+  list-style-type: none;
+  margin-bottom: 1em;
+}
+
+.accordion  details > summary::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  background: url("data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjM0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIzNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOC41OSAxNi4zNGw0LjU4LTQuNTktNC41OC00LjU5TDEwIDUuNzVsNiA2LTYgNnoiLz48L3N2Zz4=")
+    no-repeat 50% 50% / 1em 1em;
+  width: 1.5em;
+  height: 1.5em;
+  margin-top: .5em;
+  transition: transform 1s ease;  
+}
+
+.accordion summary {
+  width: 100%;
+  padding-left: 30px;
+  font-size: 20px;
+  transition: color .25s ease;
+}
+
+.accordion p {
+  margin: 0;
+  padding-left: 30px;
+}
+
+.accordion details li:last-of-type {
+  margin-bottom: 2.5em;
+}
+
+.accordion h3 {
+  padding-left: 30px;
+  margin-bottom: .5em;
+  margin-top: 1.5em;
+  font-size: 20px;
+}
+
+.accordion summary:hover {
+  color: var(--logo-green);
+}
+
+.accordion summary:focus {
+  outline: none;
+}
+
+.accordion details[open] summary:before {
+  transform: rotate(90deg);  
+}
+
+.accordion details[open] > summary {
+  color: var(--logo-green);
+}
+
+.accordion details[open] > summary ~ * {
+  animation: open 1s ease;
+}
+@keyframes open {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 /* Scrollbar */
@@ -283,8 +408,8 @@ a:hover {
     font-size: 18px;
   }
 
-  .page-title {
-    margin-bottom: 1.5em !important;  
+  li {
+    font-size: 18px;
   }
 
   .page-title h1, .section-title h1 {
@@ -297,7 +422,7 @@ a:hover {
   } 
 
   .page-title {
-    padding: 25px 50px 50px;
+    padding: 0 50px;
   }
 
   .initiatives-container .initiative-card {
@@ -307,6 +432,10 @@ a:hover {
   .front-page-title-block {
     max-width: 200px;
   }
+
+  .accordion  details > summary::before {
+    margin-top: 0;
+  }  
 }
 
 @media screen and (max-width: 576px) {
@@ -319,6 +448,6 @@ a:hover {
   }
 
   .page-title {
-    padding: 12px 25px 25px;
+    padding: 0 25px;
   }
 }
