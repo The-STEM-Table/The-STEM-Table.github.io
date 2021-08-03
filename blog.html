@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<div class="page-container">
+  <div class="page-title">
+    <h1>From the latest technology news to the most iconic scientific discoveries, we have everything here</h1>
+  </div>
+  <div class="page-section">
+    <div class="blog-container">
+      {% for post in site.posts %}
+        <a href="{{ post.url }}">
+          <div class="blog-card">
+            <div class="blog-img" style="background-image: url('{{ post.image }}'); background-size: cover;"></div>
+            <div class="blog-desc">
+              <h3>{{ post.title }}</h3>
+              <h3>{{ post.author }}</h3>
+            </div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</div>

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
   {% include head.html %}
-
   <body>
     {% include header.html %}
-
+    
     <!--Page content--> 
     {{ content }}
 
     {% include footer.html %}
   </body>
-  <script src="script.js"></script>
+  <script src="{{ site.baseurl }}/script.js"></script>
 </html>

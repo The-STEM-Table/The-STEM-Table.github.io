@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+
+  <body>
+    {% include header.html %}
+
+    <!--Page content--> 
+    <div class="page-container">
+      <div class="page-title">
+        <h1>{{ page.title }}</h1>
+        <h3>{{ page.author }}</h3>
+      </div>
+      <div class="page-section blog-content">
+        {{ content }}
+      </div>
+    </div>
+
+    {% include footer.html %}
+  </body>
+  <script src="{{ site.baseurl }}/script.js"></script>
+</html>
